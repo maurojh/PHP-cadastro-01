@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-04 qua 15:44 -->
+<!-- 2020-03-04 qua 15:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -232,19 +232,19 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org19524b6">1. Cadastro de dados no banco</a>
+<li><a href="#org8d9c1b5">1. Cadastro de dados no banco</a>
 <ul>
-<li><a href="#orgb4e6374">1.1. Criando o banco de dados e tabela</a></li>
-<li><a href="#orge24d366">1.2. Formulário</a></li>
-<li><a href="#org2740200">1.3. Cadastro</a>
+<li><a href="#org1d8491f">1.1. Criando o banco de dados e tabela</a></li>
+<li><a href="#orgea3b50f">1.2. Formulário</a></li>
+<li><a href="#org7b4d32e">1.3. Cadastro</a>
 <ul>
-<li><a href="#org7294f70">1.3.1. Conexão com o banco de dados:</a></li>
-<li><a href="#org137e8f6">1.3.2. Verificar se não houveram erros:</a></li>
-<li><a href="#org84a60d1">1.3.3. Recebendo o nome do usuário:</a></li>
-<li><a href="#orgdc1c2ab">1.3.4. Criando o comando INSERT:</a></li>
-<li><a href="#org0c930e2">1.3.5. Executa o insert</a></li>
-<li><a href="#orge50c2df">1.3.6. Fechando a conexão com o banco</a></li>
-<li><a href="#org935901f">1.3.7. Página de cadastro completa:</a></li>
+<li><a href="#orga130293">1.3.1. Conexão com o banco de dados:</a></li>
+<li><a href="#orgd27a801">1.3.2. Verificar se não houveram erros:</a></li>
+<li><a href="#orga02f4f7">1.3.3. Recebendo o nome do usuário:</a></li>
+<li><a href="#org49355d0">1.3.4. Criando o comando INSERT:</a></li>
+<li><a href="#org3e4f14b">1.3.5. Executa o insert</a></li>
+<li><a href="#org2d653d9">1.3.6. Fechando a conexão com o banco</a></li>
+<li><a href="#orgb57bf75">1.3.7. Página de cadastro completa:</a></li>
 </ul>
 </li>
 </ul>
@@ -252,12 +252,13 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-org19524b6" class="outline-2">
-<h2 id="org19524b6"><span class="section-number-2">1</span> Cadastro de dados no banco</h2>
+
+<div id="outline-container-org8d9c1b5" class="outline-2">
+<h2 id="org8d9c1b5"><span class="section-number-2">1</span> Cadastro de dados no banco</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgb4e6374" class="outline-3">
-<h3 id="orgb4e6374"><span class="section-number-3">1.1</span> Criando o banco de dados e tabela</h3>
+<div id="outline-container-org1d8491f" class="outline-3">
+<h3 id="org1d8491f"><span class="section-number-3">1.1</span> Criando o banco de dados e tabela</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Use o localhost/phpmyadmin para criar o banco de dados e a tabela, ou importe o arquivo abaixo:
@@ -310,8 +311,8 @@ COMMIT;
 </div>
 </div>
 
-<div id="outline-container-orge24d366" class="outline-3">
-<h3 id="orge24d366"><span class="section-number-3">1.2</span> Formulário</h3>
+<div id="outline-container-orgea3b50f" class="outline-3">
+<h3 id="orgea3b50f"><span class="section-number-3">1.2</span> Formulário</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 No formulário temos um campo de &lt;input&gt; com name para receber o dado na página indicada em action:
@@ -338,12 +339,12 @@ No formulário temos um campo de &lt;input&gt; com name para receber o dado na p
 </div>
 </div>
 
-<div id="outline-container-org2740200" class="outline-3">
-<h3 id="org2740200"><span class="section-number-3">1.3</span> Cadastro</h3>
+<div id="outline-container-org7b4d32e" class="outline-3">
+<h3 id="org7b4d32e"><span class="section-number-3">1.3</span> Cadastro</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org7294f70" class="outline-4">
-<h4 id="org7294f70"><span class="section-number-4">1.3.1</span> Conexão com o banco de dados:</h4>
+<div id="outline-container-orga130293" class="outline-4">
+<h4 id="orga130293"><span class="section-number-4">1.3.1</span> Conexão com o banco de dados:</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 Crie o objeto de conexão:
@@ -356,11 +357,11 @@ $ligacao = new mysqli("localhost", "root", "toor", "banco");
 </div>
 </div>
 
-<div id="outline-container-org137e8f6" class="outline-4">
-<h4 id="org137e8f6"><span class="section-number-4">1.3.2</span> Verificar se não houveram erros:</h4>
+<div id="outline-container-orgd27a801" class="outline-4">
+<h4 id="orgd27a801"><span class="section-number-4">1.3.2</span> Verificar se não houveram erros:</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
-Erros ficam em connect<sub>errno</sub>:
+Erros ficam em connect_errno:
 </p>
 
 <pre class="example">
@@ -372,8 +373,8 @@ if ($ligacao-&gt;connect_errno) {
 </div>
 </div>
 
-<div id="outline-container-org84a60d1" class="outline-4">
-<h4 id="org84a60d1"><span class="section-number-4">1.3.3</span> Recebendo o nome do usuário:</h4>
+<div id="outline-container-orga02f4f7" class="outline-4">
+<h4 id="orga02f4f7"><span class="section-number-4">1.3.3</span> Recebendo o nome do usuário:</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 O usuário digitou o nome no campo do formulário com name='usuario':
@@ -385,8 +386,8 @@ $nome = $_GET['usuario'];
 </div>
 </div>
 
-<div id="outline-container-orgdc1c2ab" class="outline-4">
-<h4 id="orgdc1c2ab"><span class="section-number-4">1.3.4</span> Criando o comando INSERT:</h4>
+<div id="outline-container-org49355d0" class="outline-4">
+<h4 id="org49355d0"><span class="section-number-4">1.3.4</span> Criando o comando INSERT:</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 O comando de inserção pode ser copiado da aba Insere no PHPMyAdmin:
@@ -400,8 +401,8 @@ $comando = "INSERT INTO `usuarios` (`id`, `nome`) VALUES (NULL, '$nome')";
 </div>
 </div>
 
-<div id="outline-container-org0c930e2" class="outline-4">
-<h4 id="org0c930e2"><span class="section-number-4">1.3.5</span> Executa o insert</h4>
+<div id="outline-container-org3e4f14b" class="outline-4">
+<h4 id="org3e4f14b"><span class="section-number-4">1.3.5</span> Executa o insert</h4>
 <div class="outline-text-4" id="text-1-3-5">
 <p>
 Usando o método query do objeto ligação:
@@ -415,8 +416,8 @@ if ($ligacao-&gt;query($comando) === TRUE) {
 </div>
 </div>
 
-<div id="outline-container-orge50c2df" class="outline-4">
-<h4 id="orge50c2df"><span class="section-number-4">1.3.6</span> Fechando a conexão com o banco</h4>
+<div id="outline-container-org2d653d9" class="outline-4">
+<h4 id="org2d653d9"><span class="section-number-4">1.3.6</span> Fechando a conexão com o banco</h4>
 <div class="outline-text-4" id="text-1-3-6">
 <pre class="example">
 $ligacao-&gt;close();
@@ -424,8 +425,8 @@ $ligacao-&gt;close();
 </div>
 </div>
 
-<div id="outline-container-org935901f" class="outline-4">
-<h4 id="org935901f"><span class="section-number-4">1.3.7</span> Página de cadastro completa:</h4>
+<div id="outline-container-orgb57bf75" class="outline-4">
+<h4 id="orgb57bf75"><span class="section-number-4">1.3.7</span> Página de cadastro completa:</h4>
 <div class="outline-text-4" id="text-1-3-7">
 <pre class="example">
 &lt;!DOCTYPE html&gt;
@@ -464,9 +465,8 @@ $ligacao-&gt;close();
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2020-03-04 qua 15:44</p>
+<p class="date">Created: 2020-03-04 qua 15:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
-
