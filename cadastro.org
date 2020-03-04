@@ -1,0 +1,165 @@
+#+OPTIONS: ^:nil
+
+* Cadastro de dados no banco
+
+** Criando o banco de dados e tabela
+
+Use o localhost/phpmyadmin para criar o banco de dados e a tabela, ou importe o arquivo abaixo:
+
+#+BEGIN_EXAMPLE
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: 04-Mar-2020 √†s 18:29
+-- Vers√£o do servidor: 5.7.26
+-- vers√£o do PHP: 7.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `banco`
+--
+CREATE DATABASE IF NOT EXISTS `banco` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `banco`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
+;
+#+END_EXAMPLE
+
+** Formul·rio
+
+No formul·rio temos um campo de <input> com name para receber o dado na p·gina indicada em action:
+
+#+BEGIN_EXAMPLE
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro usu·rio</title>
+</head>
+
+<body>
+    <form action="cadastro.php">
+        <input type="text" name="usuario">
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+
+</html>
+#+END_EXAMPLE
+
+** Cadastro
+
+*** Conex„o com o banco de dados:
+
+Crie o objeto de conex„o:
+
+#+BEGIN_EXAMPLE
+//                   "endereco", "usuario", "senha", "nome_do_banco"
+$ligacao = new mysqli("localhost", "root", "toor", "banco");
+#+END_EXAMPLE
+
+*** Verificar se n„o houveram erros:
+
+Erros ficam em connect_errno:
+
+#+BEGIN_EXAMPLE
+if ($ligacao->connect_errno) {
+    printf("A conex„o falhou: %s\n", $ligacao->connect_error);
+    exit();
+}
+#+END_EXAMPLE
+
+*** Recebendo o nome do usu·rio:
+
+O usu·rio digitou o nome no campo do formul·rio com name='usuario':
+
+#+BEGIN_EXAMPLE
+$nome = $_GET['usuario'];
+#+END_EXAMPLE
+
+*** Criando o comando INSERT:
+
+O comando de inserÁ„o pode ser copiado da aba Insere no PHPMyAdmin:
+
+#+BEGIN_EXAMPLE
+    
+$comando = "INSERT INTO `usuarios` (`id`, `nome`) VALUES (NULL, '$nome')";
+
+#+END_EXAMPLE
+
+*** Executa o insert
+
+Usando o mÈtodo query do objeto ligaÁ„o:
+
+#+BEGIN_EXAMPLE
+if ($ligacao->query($comando) === TRUE) {
+    printf("Usu·rio ($nome) foi cadastrado com sucesso!\n");
+}
+#+END_EXAMPLE
+
+*** Fechando a conex„o com o banco
+
+#+BEGIN_EXAMPLE
+$ligacao->close();
+#+END_EXAMPLE
+
+*** P·gina de cadastro completa:
+
+#+BEGIN_EXAMPLE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar no banco</title>
+</head>
+<body>
+<?php   
+    
+    //                   "endereco", "usuario", "senha", "nome_do_banco"
+$ligacao = new mysqli("localhost", "root", "toor", "banco");
+    
+if ($ligacao->connect_errno) {
+    printf("A conex„o falhou: %s\n", $ligacao->connect_error);
+    exit();
+}
+    
+$nome = $_GET['usuario'];
+    
+$comando = "INSERT INTO `usuarios` (`id`, `nome`) VALUES (NULL, '$nome')";
+
+if ($ligacao->query($comando) === TRUE) {
+    printf("Usu·rio ($nome) foi cadastrado com sucesso!\n");
+}
+    
+$ligacao->close();
+?>
+</body>
+</html>
+#+END_EXAMPLE
